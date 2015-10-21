@@ -44,7 +44,7 @@ all: basteleiPI
 basteleiPI: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++  -o "basteleiPI" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L./basteleiPI/wiringPI -o "basteleiPI" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
