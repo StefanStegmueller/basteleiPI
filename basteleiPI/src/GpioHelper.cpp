@@ -1,5 +1,5 @@
 #include "GpioHelper.h"
-#include "wiringPi.h"
+#include <wiringPi.h>
 
 int errmsg;
 
@@ -9,6 +9,5 @@ GpioHelper::GpioHelper(int pin, int mode) {
 }
 
 GpioHelper::~GpioHelper() {
-	// TODO Auto-generated destructor stub
 }
 

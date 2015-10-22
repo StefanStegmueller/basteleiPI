@@ -23,26 +23,27 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug.153502899" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.exe.debug">
 								<option id="gnu.cpp.compiler.exe.debug.option.optimization.level.549164011" name="Optimization Level" superClass="gnu.cpp.compiler.exe.debug.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.exe.debug.option.debugging.level.910882464" name="Debug Level" superClass="gnu.cpp.compiler.exe.debug.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
-								<option id="gnu.cpp.compiler.option.include.paths.1127992423" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths"/>
-								<option id="gnu.cpp.compiler.option.include.files.1938742644" superClass="gnu.cpp.compiler.option.include.files" valueType="includeFiles">
-									<listOptionValue builtIn="false" value="/usr/local/lib/libwiringPi.so"/>
-								</option>
+								<option id="gnu.cpp.compiler.option.include.paths.1127992423" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath"/>
+								<option id="gnu.cpp.compiler.option.include.files.1938742644" name="Include files (-include)" superClass="gnu.cpp.compiler.option.include.files" valueType="includeFiles"/>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1542291800" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.compiler.exe.debug.237383056" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.exe.debug">
 								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.exe.debug.option.optimization.level.228869847" name="Optimization Level" superClass="gnu.c.compiler.exe.debug.option.optimization.level" valueType="enumerated"/>
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.819574272" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.include.paths.1739622043" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths"/>
-								<option id="gnu.c.compiler.option.include.files.1514969855" name="Include files (-include)" superClass="gnu.c.compiler.option.include.files" valueType="includeFiles">
-									<listOptionValue builtIn="false" value="/usr/local/lib/libwiringPi.so"/>
+								<option id="gnu.c.compiler.option.include.paths.1739622043" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/usr/local/include"/>
 								</option>
+								<option id="gnu.c.compiler.option.include.files.1514969855" name="Include files (-include)" superClass="gnu.c.compiler.option.include.files" valueType="includeFiles"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.562987592" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.234581373" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.658406696" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
-								<option id="gnu.cpp.link.option.libs.786862929" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs"/>
+								<option id="gnu.cpp.link.option.libs.786862929" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" value="wiringPi"/>
+									<listOptionValue builtIn="false" value="pthread"/>
+								</option>
 								<option id="gnu.cpp.link.option.paths.1960435097" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
-									<listOptionValue builtIn="false" value="/usr/local/lib/libwiringPi.so"/>
+									<listOptionValue builtIn="false" value="/usr/local/lib"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.540533892" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>

@@ -1,3 +1,3 @@
-src/basteleiPI.o: ../src/basteleiPI.cpp ../src/GpioHandler.h
+src/basteleiPI.o: ../src/basteleiPI.cpp ../src/GpioHelper.h
 
-../src/GpioHandler.h:
+../src/GpioHelper.h:
