@@ -12,7 +12,7 @@ class GpioHelper {
 public:
 	int errmsg;
 
-	GpioHelper(int, int);
+	GpioHelper(int, bool);
 	virtual ~GpioHelper();
 };
 
