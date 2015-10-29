@@ -1,5 +1,6 @@
 #include "GpioHelper.h"
 #include <wiringPi.h>
+#include <stdlib.h>
 
 int errmsg;
 

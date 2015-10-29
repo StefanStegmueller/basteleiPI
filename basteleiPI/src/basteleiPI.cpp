@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include "GpioHelper.h"
+#include "DhtHelper.h"
 
 int Setup(){
 	GpioHelper* gpio = new GpioHelper(PIN,INPUT);
@@ -11,10 +12,12 @@ int Setup(){
 }
 
 int main() {
-	if(Setup() == -1){
+	//Init GPIO
+	/*if(Setup() == -1){
 		std::cout << "Setup failed" << std::endl;
 		return 1;
-	}
-	std::cout << "!!!Hello World!!!" << std::endl; // prints !!!Hello World!!!
+	}*/
+	DhtHelper* dht = new DhtHelper(0,PIN);
+	std::cout << "Humidity: " <<dht->humv << "\tTemperature: " << dht->tempv << std::endl;
 	return 0;
 }
