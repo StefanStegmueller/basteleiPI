@@ -13,7 +13,7 @@ extern "C"{
 
 DhtHelper::DhtHelper(int type, int pin) {
 	//test_dht_read(type, pin, hum,temp);
-	pi_2_dht_read(type,pin,hum,temp);
+	errArg = pi_2_dht_read(type,pin,hum,temp);
 }
 
 int DhtHelper::test_dht_read(int type, int pin, float* humidity, float* temperature) {

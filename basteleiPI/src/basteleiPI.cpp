@@ -20,6 +20,7 @@ int main() {
 		return 1;
 	}*/
 	DhtHelper* dht = new DhtHelper(TYPE_DHT,PIN_DHT);
-	std::cout << "Humidity: " <<dht->humv << "\tTemperature: " << dht->tempv << std::endl;
+	std::cout << "Humidity: " <<dht->humv << "\tTemperature: " << dht->tempv
+			  << "\tErrorArgument: " << dht->errArg << std::endl;
 	return 0;
 }
