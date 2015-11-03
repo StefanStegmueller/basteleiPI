@@ -1,4 +1,9 @@
 Librarys to download:
 
-WiringPi:	repo -> git clone git://git.drogon.net/wiringPi
-		install -> ./build
+WiringPi:	
+repo -> git clone git://git.drogon.net/wiringPi
+install -> ./build
+
+Adafruit_Phython_DHT:
+repo ->https://github.com/adafruit/                    Adafruit_Python_DHT.git	
+install ->sudo python setup.py install
