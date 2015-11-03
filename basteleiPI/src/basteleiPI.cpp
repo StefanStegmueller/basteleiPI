@@ -8,6 +8,9 @@
 #include "GpioHelper.h"
 #include "DhtHelper.h"
 #include <sys/time.h>
+#include <ctime>
+
+using namespace std;
 
 int Setup(){
 	GpioHelper* gpio = new GpioHelper(PIN,INPUT);
@@ -21,10 +24,12 @@ int main() {
 		return 1;
 	}*/
 
+	time_t result = time(nullptr);
+
 	while(true) {
 	DhtHelper* dht = new DhtHelper(TYPE_DHT,PIN_DHT);
-	std::cout << "Humidity: " <<dht->humv << "\tTemperature: " << dht->tempv
-			  << "\tErrorArgument: " << dht->errArg << std::endl;
+	cout << asctime(localtime(&result)) << "Humidity: " <<dht->humv << "\tTemperature: " << dht->tempv
+			  << "\tErrArg: " << dht->errArg << std::endl;
 	}
 	return 0;
 }
