@@ -7,7 +7,7 @@
 
 #include "DhtHelper.h"
 #include <stdlib.h>
-#include "pi_2_dht.read.h"
+#include "pi_2_dht_read.h"
 
 DhtHelper::DhtHelper(int type, int pin) {
 	//test_dht_read(type, pin, hum,temp);
