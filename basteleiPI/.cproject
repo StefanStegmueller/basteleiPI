@@ -46,9 +46,8 @@
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.debug.234581373" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.debug"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug.658406696" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.debug">
 								<option id="gnu.cpp.link.option.libs.786862929" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
-									<listOptionValue builtIn="false" value="curl"/>
 									<listOptionValue builtIn="false" value="wiringPi"/>
-									<listOptionValue builtIn="false" value="python2.7"/>
+									<listOptionValue builtIn="false" value="curl"/>
 									<listOptionValue builtIn="false" value="pthread"/>
 								</option>
 								<option id="gnu.cpp.link.option.paths.1960435097" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
