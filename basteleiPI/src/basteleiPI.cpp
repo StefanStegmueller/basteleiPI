@@ -7,6 +7,7 @@
 #include <iostream>
 #include "GpioHelper.h"
 #include "DhtHelper.h"
+#include <sys/time.h>
 
 int Setup(){
 	GpioHelper* gpio = new GpioHelper(PIN,INPUT);
@@ -19,8 +20,11 @@ int main() {
 		std::cout << "Setup failed" << std::endl;
 		return 1;
 	}*/
+
+	while(true) {
 	DhtHelper* dht = new DhtHelper(TYPE_DHT,PIN_DHT);
 	std::cout << "Humidity: " <<dht->humv << "\tTemperature: " << dht->tempv
 			  << "\tErrorArgument: " << dht->errArg << std::endl;
+	}
 	return 0;
 }
