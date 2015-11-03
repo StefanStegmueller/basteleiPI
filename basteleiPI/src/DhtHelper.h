@@ -17,7 +17,6 @@ public:
 	DhtHelper(int, int);
 	virtual ~DhtHelper();
 	int test_dht_read(int type, int pin, float* humidity, float* temperature);
-	int pi_2_dht_read(int type, int pin, float* humidity, float* temperature);
 };
 
 #endif /* DHTHELPER_H_ */
