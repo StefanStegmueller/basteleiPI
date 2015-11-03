@@ -5,7 +5,7 @@
 #include <iostream>
 #include "GpioHelper.h"
 #include "DhtHelper.h"
-#include "curl_easy.h"
+#include "curl.h"
 
 int Setup(){
 	GpioHelper* gpio = new GpioHelper(PIN,INPUT);
