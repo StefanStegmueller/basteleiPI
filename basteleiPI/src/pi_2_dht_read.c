@@ -44,8 +44,10 @@ int pi_2_dht_read(int type, int pin, float* humidity, float* temperature) {
   *humidity = 0.0f;
 
   // Initialize GPIO library.
-  if (pi_2_mmio_init() < 0) {
-    return DHT_ERROR_GPIO;
+  int gpioErr = pi_2_mmio_init();
+  if (gpioErr < 0) {
+    //return DHT_ERROR_GPIO;
+	return gpioErr;
   }
 
   // Store the count that each DHT bit pulse is low and high.
