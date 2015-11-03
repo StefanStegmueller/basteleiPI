@@ -1,0 +1,4 @@
+Librarys to download:
+
+WiringPi:	repo -> git clone git://git.drogon.net/wiringPi
+		install -> ./build
