@@ -7,3 +7,13 @@ install -> ./build
 Adafruit_Phython_DHT:
 repo ->https://github.com/adafruit/                    Adafruit_Python_DHT.git	
 install ->sudo python setup.py install
+
+libcurl:
+link -> http://curl.haxx.se/download.html
+install -> http://curl.haxx.se/docs/install.html
+
+curlcpp:
+repo -> https://github.com/JosephP91/curlcpp.git
+install -> in readme
+
+
