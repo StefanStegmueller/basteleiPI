@@ -4,5 +4,5 @@
 
 USER_OBJS :=
 
-LIBS := -lwiringPi -lpython2.7 -lpthread
+LIBS := -lwiringPi -lpython2.7 -lpthread -lcurlcpp
 
