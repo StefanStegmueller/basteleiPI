@@ -24,10 +24,9 @@ int main() {
 		return 1;
 	}*/
 
-	time_t result = time(nullptr);
-
 	while(true) {
 	DhtHelper* dht = new DhtHelper(TYPE_DHT,PIN_DHT);
+	time_t result = time(nullptr);
 	cout << asctime(localtime(&result)) << "Humidity: " <<dht->humv << "\tTemperature: " << dht->tempv
 			  << "\tErrArg: " << dht->errArg << std::endl;
 	}
