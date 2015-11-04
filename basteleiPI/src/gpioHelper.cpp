@@ -1,10 +1,10 @@
-#include "GpioHelper.h"
 #include <wiringPi.h>
 #include <stdlib.h>
+#include "gpioHelper.h"
 
 int errmsg;
 
-GpioHelper::GpioHelper(int pin,bool mode) {
+gpioHelper::gpioHelper(int pin,bool mode) {
 	errmsg = wiringPiSetup();
 	if(mode){
 		pinMode(pin,INPUT);
@@ -14,6 +14,6 @@ GpioHelper::GpioHelper(int pin,bool mode) {
 	}
 }
 
-GpioHelper::~GpioHelper() {
+gpioHelper::~gpioHelper() {
 }
 

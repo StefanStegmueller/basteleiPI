@@ -6,6 +6,8 @@
 CPP_SRCS += \
 ../src/DhtHelper.cpp \
 ../src/GpioHelper.cpp \
+../src/HttpRequest.cpp \
+../src/JsonWrap.cpp \
 ../src/basteleiPI.cpp 
 
 C_SRCS += \
@@ -17,6 +19,8 @@ C_SRCS += \
 OBJS += \
 ./src/DhtHelper.o \
 ./src/GpioHelper.o \
+./src/HttpRequest.o \
+./src/JsonWrap.o \
 ./src/basteleiPI.o \
 ./src/common_dht_read.o \
 ./src/pi_2_dht_read.o \
@@ -32,6 +36,8 @@ C_DEPS += \
 CPP_DEPS += \
 ./src/DhtHelper.d \
 ./src/GpioHelper.d \
+./src/HttpRequest.d \
+./src/JsonWrap.d \
 ./src/basteleiPI.d 
 
 
@@ -39,7 +45,7 @@ CPP_DEPS += \
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/usr/local/include/curl -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	g++ -I/usr/local/include/curl -I/usr/local/include/rapidjson -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

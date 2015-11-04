@@ -12,3 +12,6 @@ libcurl:
 link -> http://curl.haxx.se/download.html
 install -> http://curl.haxx.se/docs/install.html
 
+rapidjson:
+repo -> https://github.com/miloyip/rapidjson.git
+install -> copy include/rapidjson to /usr/local/include

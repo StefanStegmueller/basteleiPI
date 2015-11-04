@@ -1,5 +1,5 @@
 /*
- * GpioHandler.h
+ * gpioHandler.h
  *
  *  Created on: 22 Oct 2015
  *      Author: GordonShumway
@@ -8,12 +8,12 @@
 #ifndef GPIOHELPER_H_
 #define GPIOHELPER_H_
 
-class GpioHelper {
+class gpioHelper {
 public:
 	int errmsg;
 
-	GpioHelper(int, bool);
-	virtual ~GpioHelper();
+	gpioHelper(int, bool);
+	virtual ~gpioHelper();
 };
 
 #endif /* GPIOHELPER_H_ */
