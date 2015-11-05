@@ -4,55 +4,29 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/DhtHelper.cpp \
-../src/GpioHelper.cpp \
-../src/HttpRequest.cpp \
-../src/JsonWrap.cpp \
-../src/basteleiPI.cpp 
-
-C_SRCS += \
-../src/common_dht_read.c \
-../src/pi_2_dht_read.c \
-../src/pi_2_mmio.c \
-../src/test_dht_read.c 
+../src/basteleiPI.cpp \
+../src/gpioHelper.cpp \
+../src/httpRequest.cpp \
+../src/jsonWrap.cpp 
 
 OBJS += \
-./src/DhtHelper.o \
-./src/GpioHelper.o \
-./src/HttpRequest.o \
-./src/JsonWrap.o \
 ./src/basteleiPI.o \
-./src/common_dht_read.o \
-./src/pi_2_dht_read.o \
-./src/pi_2_mmio.o \
-./src/test_dht_read.o 
-
-C_DEPS += \
-./src/common_dht_read.d \
-./src/pi_2_dht_read.d \
-./src/pi_2_mmio.d \
-./src/test_dht_read.d 
+./src/gpioHelper.o \
+./src/httpRequest.o \
+./src/jsonWrap.o 
 
 CPP_DEPS += \
-./src/DhtHelper.d \
-./src/GpioHelper.d \
-./src/HttpRequest.d \
-./src/JsonWrap.d \
-./src/basteleiPI.d 
+./src/basteleiPI.d \
+./src/gpioHelper.d \
+./src/httpRequest.d \
+./src/jsonWrap.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/usr/local/include/curl -I/usr/local/include/rapidjson -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
-	@echo 'Finished building: $<'
-	@echo ' '
-
-src/%.o: ../src/%.c
-	@echo 'Building file: $<'
-	@echo 'Invoking: GCC C Compiler'
-	gcc -I/usr/local/include -I/usr/curlcpp/include -O0 -g3 -Wall -c -fmessage-length=0 -std=gnu99 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
+	g++ -I/usr/local/include -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

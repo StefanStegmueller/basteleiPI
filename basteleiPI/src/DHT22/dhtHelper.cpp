@@ -7,11 +7,6 @@
 
 #include "dhtHelper.h"
 
-#include <stdlib.h>
-extern "C"{
-	#include "pi_2_dht_read.h"
-}
-
 dhtHelper::dhtHelper(int type, int pin) {
 	hum = &humv;
 	temp = &tempv;

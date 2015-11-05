@@ -10,7 +10,7 @@
 
 #include <curl/curl.h>
 #include "rapidjson/stringbuffer.h"
-#include "jsonWrap.h";
+#include "jsonWrap.h"
 
 class httpRequest {
 	CURL* curl;

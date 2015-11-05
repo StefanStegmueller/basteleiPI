@@ -7,13 +7,11 @@
 #include "httpRequest.h"
 
 httpRequest::httpRequest() {
-	curl = new CURL();
 	curl = curl_easy_init();
 	json = new jsonWrap();
 }
 
 httpRequest::~httpRequest() {
-	delete curl;
 	delete json;
 }
 

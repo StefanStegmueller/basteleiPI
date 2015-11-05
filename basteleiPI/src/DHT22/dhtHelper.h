@@ -8,6 +8,11 @@
 #ifndef DHTHELPER_H_
 #define DHTHELPER_H_
 
+#include <stdlib.h>
+extern "C"{
+	#include "pi_2_dht_read.h"
+}
+
 class dhtHelper {
 public:
 	float humv;

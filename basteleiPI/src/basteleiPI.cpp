@@ -1,12 +1,12 @@
 
 #define PIN 0
+#define INPUT 0
 #define PIN_DHT 4
 #define TYPE_DHT 22
-#define INPUT 0
 
 #include <iostream>
 #include "gpioHelper.h"
-#include "dhtHelper.h"
+#include "DHT22/dhtHelper.h"
 #include "httpRequest.h"
 #include <sys/time.h>
 

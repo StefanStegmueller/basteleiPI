@@ -1,8 +1,15 @@
-src/basteleiPI.o: ../src/basteleiPI.cpp ../src/GpioHelper.h \
- ../src/DhtHelper.h ../src/JsonWrap.h
+src/basteleiPI.o: ../src/basteleiPI.cpp ../src/gpioHelper.h \
+ ../src/DHT22/dhtHelper.h ../src/DHT22/pi_2_dht_read.h \
+ ../src/DHT22/common_dht_read.h ../src/httpRequest.h ../src/jsonWrap.h
 
-../src/GpioHelper.h:
+../src/gpioHelper.h:
 
-../src/DhtHelper.h:
+../src/DHT22/dhtHelper.h:
 
-../src/JsonWrap.h:
+../src/DHT22/pi_2_dht_read.h:
+
+../src/DHT22/common_dht_read.h:
+
+../src/httpRequest.h:
+
+../src/jsonWrap.h:
