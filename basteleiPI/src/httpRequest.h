@@ -8,13 +8,21 @@
 #ifndef HTTPREQUEST_H_
 #define HTTPREQUEST_H_
 
-#include <curl/curl.h>
+
+#include <cstdlib>
+#include <cerrno>
+#include <string.h>
+
+#include <cURLpp.hpp>
+#include <Easy.hpp>
+#include <Options.hpp>
+#include <Exception.hpp>
 #include "stringbuffer.h"
 #include "jsonWrap.h"
 
 class httpRequest {
-	CURL* curl;
 	jsonWrap* json;
+	char* url;
 public:
 	httpRequest();
 	virtual ~httpRequest();

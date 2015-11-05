@@ -7,8 +7,8 @@
 #include "httpRequest.h"
 
 httpRequest::httpRequest() {
-	curl = curl_easy_init();
 	json = new jsonWrap();
+	url = "http://api.bastelei-ws.de/insert.php";
 }
 
 httpRequest::~httpRequest() {
@@ -18,10 +18,21 @@ httpRequest::~httpRequest() {
 void httpRequest::Post(float hum, float temp){
 	json->SetData("humidity", hum);
 	json->SetData("temperature", temp);
-	curl_easy_setopt(curl, CURLOPT_URL, "http://api.bastelei-ws.de/insert.php");
-	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json->GetBuffer().GetString());
+	 try {
+		curlpp::Cleanup cleaner;
+		curlpp::Easy request;
 
-	curl_easy_perform(curl);
-	curl_easy_cleanup(curl);
+		request.setOpt(new curlpp::options::Url(url));
+		request.setOpt(new curlpp::options::Verbose(true));
+		request.setOpt(new curlpp::options::PostFields(json->GetBuffer().GetString()));
+
+		request.perform();
+	  }
+	  catch ( curlpp::LogicError & e ) {
+		std::cout << e.what() << std::endl;
+	  }
+	  catch ( curlpp::RuntimeError & e ) {
+		std::cout << e.what() << std::endl;
+	  }
 }
 
