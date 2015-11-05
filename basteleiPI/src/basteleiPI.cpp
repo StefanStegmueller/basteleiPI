@@ -17,9 +17,7 @@ dhtHelper* dht;
 bmpHelper* bmp;
 httpRequest* http;
 
-int Setup(){
-	/*gpioHelper* gpio = new gpioHelper(PIN,INPUT);
-	return gpio->errmsg;*/
+void Setup(){
 	dht = new dhtHelper(TYPE_DHT,PIN_DHT);
 	bmp = new bmpHelper();
 	http = new httpRequest();
@@ -32,11 +30,6 @@ void ConsoleOutput(){
 }
 
 int main() {
-	//Init GPIO
-	/*if(Setup() == -1){
-		std::cout << "Setup failed" << std::endl;
-		return 1;
-	}*/
 	Setup();
 	//http->Post(dht->humv,dht->tempv);
 	ConsoleOutput();

@@ -95,7 +95,7 @@ int bmp_ReadInt(int fd, uint8_t *devValues,uint8_t startReg,uint8_t bytesToRead)
   //Build a register read command
   //Requires a one complete message containing a command
   //and anaother complete message for the reply
-  struct i2c_msg read_reg[2]={
+   struct i2c_msg read_reg[2]={
     {BMPx8x_I2CADDR,0,1,&startReg},
     {BMPx8x_I2CADDR,I2C_M_RD,bytesToRead,devValues}
   };
