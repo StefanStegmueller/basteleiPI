@@ -9,7 +9,7 @@
 #define HTTPREQUEST_H_
 
 #include <curl/curl.h>
-#include "rapidjson/stringbuffer.h"
+#include "stringbuffer.h"
 #include "jsonWrap.h"
 
 class httpRequest {
