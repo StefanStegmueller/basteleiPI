@@ -7,18 +7,21 @@
 #include <iostream>
 #include "gpioHelper.h"
 #include "DHT22/dhtHelper.h"
+#include "BMP180/bmpHelper.h"
 #include "httpRequest.h"
 #include <sys/time.h>
 
 using namespace std;
 
 dhtHelper* dht;
+bmpHelper* bmp;
 httpRequest* http;
 
 int Setup(){
 	/*gpioHelper* gpio = new gpioHelper(PIN,INPUT);
 	return gpio->errmsg;*/
 	dht = new dhtHelper(TYPE_DHT,PIN_DHT);
+	bmp = new bmpHelper();
 	http = new httpRequest();
 }
 
@@ -35,7 +38,7 @@ int main() {
 		return 1;
 	}*/
 	Setup();
-	http->Post(dht->humv,dht->tempv);
+	//http->Post(dht->humv,dht->tempv);
 	ConsoleOutput();
 	delete dht;
 	delete http;

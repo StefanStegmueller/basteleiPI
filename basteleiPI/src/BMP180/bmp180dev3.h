@@ -1,4 +1,18 @@
+#ifndef BMP180DEV3_H_INCLUDED
+#define BMP180DEV3_INCLUDED
+
 #define sleepms(ms)  usleep((ms)*1000)
+
+#include <stdio.h>
+#include <stdint.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <errno.h>
+#include <linux/i2c-dev.h>
+#include <linux/i2c.h>
+#include <sys/ioctl.h>
+#include <math.h>
 
 // BMP085 & BMP180 Specific code
 #define BMPx8x_I2CADDR           0x77
@@ -12,27 +26,16 @@
 
 const unsigned char BMPx8x_OverSampling = 3;
 
-// Calibration values - These are stored in the BMP085/180
-short int            bmp_ac1;
-short int            bmp_ac2; 
-short int            bmp_ac3; 
-unsigned short int   bmp_ac4;
-unsigned short int   bmp_ac5;
-unsigned short int   bmp_ac6;
-short int            bmp_b1; 
-short int            bmp_b2;
-int                  bmp_b5; 
-short int            bmp_mb;
-short int            bmp_mc;
-short int            bmp_md;
-
 int      bmp_ReadInt          (int fd, uint8_t *devValues,uint8_t startReg,uint8_t bytesToRead);
 int      bmp_WriteCmd         (int fd, uint8_t devAction);
 int      bmp_Calibration      (int fd);
 int      WaitForConversion    (int fd);
 int      bmp_GetPressure      (int fd, double *Pres);
 int      bmp_GetTemperature   (int fd, double *Temp);
+int		 Use				  ();
 
 double   bmp_altitude         (double p);
 double   bmp_qnh              (double p,double StationAlt);
 double   ppl_DensityAlt       (double PAlt,double Temp);
+
+#endif

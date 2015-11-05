@@ -23,6 +23,7 @@ C_UPPER_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+src/BMP180 \
 src/DHT22 \
 src \
 

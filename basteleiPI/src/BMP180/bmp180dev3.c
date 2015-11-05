@@ -45,22 +45,26 @@
 
 */
 
-#include <stdio.h>
-#include <stdint.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <errno.h>
-#include <linux/i2c-dev.h>
-#include <linux/i2c.h>
-#include <sys/ioctl.h>
-#include <math.h>
 #include "bmp180dev3.h"
 
 #define sleepms(ms)  usleep((ms)*1000)
 
 #define I2CBus             "/dev/i2c-1"      //New Pi's
 //#define I2CBus             "/dev/i2c-0"    //Old, but not stale Pi's
+
+// Calibration values - These are stored in the BMP085/180
+short int            bmp_ac1;
+short int            bmp_ac2;
+short int            bmp_ac3;
+unsigned short int   bmp_ac4;
+unsigned short int   bmp_ac5;
+unsigned short int   bmp_ac6;
+short int            bmp_b1;
+short int            bmp_b2;
+int                  bmp_b5;
+short int            bmp_mb;
+short int            bmp_mc;
+short int            bmp_md;
 
 // Returns a file id for the port/bus
 int i2c_Open(char *I2CBusName){
@@ -283,7 +287,7 @@ double ppl_DensityAlt(double PAlt,double Temp){
   return PAlt+(120*(Temp-ISA)); //So,So density altitude
 }
 
-int main(int argc, char **argv)
+int Use()
 {
    int fd;
    double temperature, pressure;
