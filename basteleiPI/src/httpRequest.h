@@ -13,8 +13,8 @@
 #include "jsonWrap.h";
 
 class httpRequest {
-	CURL* curl = new CURL();
-	jsonWrap* json = new jsonWrap();
+	CURL* curl;
+	jsonWrap* json;
 public:
 	httpRequest();
 	virtual ~httpRequest();

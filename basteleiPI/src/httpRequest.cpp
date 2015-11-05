@@ -7,7 +7,9 @@
 #include "httpRequest.h"
 
 httpRequest::httpRequest() {
+	curl = new CURL();
 	curl = curl_easy_init();
+	json = new jsonWrap();
 }
 
 httpRequest::~httpRequest() {
@@ -22,5 +24,6 @@ void httpRequest::Post(float hum, float temp){
 	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json->GetBuffer().GetString());
 
 	curl_easy_perform(curl);
+	curl_easy_cleanup(curl);
 }
 
