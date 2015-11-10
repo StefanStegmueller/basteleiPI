@@ -25,13 +25,15 @@ class httpRequest {
 	CURL* curl;
 	string url;
 	string humName;
-	const char *cHumName;
+	const char* cHumName;
 	string tempName;
-	const char *cTempName;
+	const char* cTempName;
+	string pressureName;
+	const char* cPressureName;
 public:
 	httpRequest(string url);
 	virtual ~httpRequest();
-	void Post(float hum, float temp);
+	void Post(float hum, float temp, float press);
 };
 
 #endif /* HTTPREQUEST_H_ */

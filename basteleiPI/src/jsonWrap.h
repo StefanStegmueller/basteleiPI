@@ -21,7 +21,7 @@ public:
 	jsonWrap();
 	virtual ~jsonWrap();
 	void SetData(const char*, double);
-	rapidjson::StringBuffer GetBuffer();
+	StringBuffer GetBuffer();
 };
 
 #endif /* JSONWRAP_H_ */

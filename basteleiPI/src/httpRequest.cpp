@@ -15,15 +15,18 @@ httpRequest::httpRequest(string url) {
 	cHumName = humName.c_str();
 	tempName = "temperature";
 	cTempName = tempName.c_str();
+	pressureName = "pressure";
+	cPressureName = pressureName.c_str();
 }
 
 httpRequest::~httpRequest() {
 	delete json;
 }
 
-void httpRequest::Post(float hum, float temp) {
+void httpRequest::Post(float hum, float temp, float press) {
 	json->SetData(cHumName, hum);
 	json->SetData(cTempName, temp);
+	json->SetData(cPressureName, press);
 
 	curl_global_init(CURL_GLOBAL_ALL);
 	curl = curl_easy_init();
