@@ -38,6 +38,7 @@ int main(int argc, char* argv[]) {
 		http->Post(dht->humv,dht->tempv, bmp->press.f);
 		ConsoleOutput();
 	}
+	http->Post(dht->humv,dht->tempv, bmp->press.f);
 	delete dht;
 	delete bmp;
 	delete http;
