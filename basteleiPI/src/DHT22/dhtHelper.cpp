@@ -7,11 +7,14 @@
 
 #include "dhtHelper.h"
 
-dhtHelper::dhtHelper(int type, int pin) {
+dhtHelper::dhtHelper() {
 	hum = &humv;
 	temp = &tempv;
+	errArg = 0;
+}
+
+void dhtHelper::ReadDht(int type, int pin){
 	errArg = pi_2_dht_read(type,pin,hum,temp);
-	sleep_milliseconds(2500);
 }
 
 int dhtHelper::test_dht_read(int type, int pin, float* humidity, float* temperature) {

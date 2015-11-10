@@ -25,7 +25,7 @@ public:
 	data press;
 	data temp;
 	data alt;
-	void FetchData();
+	void ReadBmp();
 };
 
 #endif /* BMP180_BMPHELPER_H_ */

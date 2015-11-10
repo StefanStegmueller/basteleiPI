@@ -18,9 +18,10 @@ public:
 	float humv;
 	float tempv;
 	int errArg;
-	dhtHelper(int, int);
+	dhtHelper();
 	virtual ~dhtHelper();
 	int test_dht_read(int type, int pin, float* humidity, float* temperature);
+	void ReadDht(int type, int pin);
 private:
 	float* hum;
 	float* temp;

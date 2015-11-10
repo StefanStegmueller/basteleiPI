@@ -19,7 +19,7 @@ bmpHelper* bmp;
 httpRequest* http;
 
 void Setup(){
-	dht = new dhtHelper(TYPE_DHT,PIN_DHT);
+	dht = new dhtHelper();
 	bmp = new bmpHelper();
 	http = new httpRequest("http://api.bastelei-ws.de/insert.php");
 }
@@ -32,9 +32,14 @@ void ConsoleOutput(){
 
 int main() {
 	Setup();
-	//http->Post(dht->humv,dht->tempv, bmp->press);
-	ConsoleOutput();
+	while(true){
+		dht->ReadDht(TYPE_DHT,PIN_DHT);
+		bmp->ReadBmp();
+		http->Post(dht->humv,dht->tempv, bmp->press.f);
+		ConsoleOutput();
+	}
 	delete dht;
+	delete bmp;
 	delete http;
 	return 0;
 }

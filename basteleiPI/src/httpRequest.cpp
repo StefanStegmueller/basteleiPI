@@ -21,6 +21,7 @@ httpRequest::httpRequest(string url) {
 
 httpRequest::~httpRequest() {
 	delete json;
+	free(curl);
 }
 
 void httpRequest::Post(float hum, float temp, float press) {
