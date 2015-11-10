@@ -8,9 +8,9 @@
 #ifndef JSONWRAP_H_
 #define JSONWRAP_H_
 
-#include "writer.h"
-#include "stringbuffer.h"
-#include "document.h"
+#include "rapidjson/writer.h"
+#include "rapidjson/stringbuffer.h"
+#include "rapidjson/document.h"
 #include <iostream>
 
 using namespace rapidjson;
@@ -20,7 +20,7 @@ class jsonWrap {
 public:
 	jsonWrap();
 	virtual ~jsonWrap();
-	void SetData(char*, double);
+	void SetData(const char*, double);
 	rapidjson::StringBuffer GetBuffer();
 };
 

@@ -45,14 +45,14 @@ all: basteleiPI
 # Tool invocations
 basteleiPI: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
-	@echo 'Invoking: Cross G++ Linker'
-	arm-linux-gnueabihf-g++ -L/usr/lib -L/usr/local/lib -o "basteleiPI" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Invoking: GCC C++ Linker'
+	g++ -L/usr/lib -L/usr/local/lib -o "basteleiPI" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(C++_DEPS)$(OBJS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) basteleiPI
+	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) basteleiPI
 	-@echo ' '
 
 .PHONY: all clean dependents

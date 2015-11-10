@@ -6,33 +6,33 @@
 
 #include "httpRequest.h"
 
-httpRequest::httpRequest() {
+
+httpRequest::httpRequest(string url) {
 	json = new jsonWrap();
-	url = "http://api.bastelei-ws.de/insert.php";
+	curl = (CURL*)malloc(sizeof(CURL*));
+	this->url = url;
+	humName = "humidity";
+	cHumName = humName.c_str();
+	tempName = "temperature";
+	cTempName = tempName.c_str();
 }
 
 httpRequest::~httpRequest() {
 	delete json;
 }
 
-void httpRequest::Post(float hum, float temp){
-	json->SetData("humidity", hum);
-	json->SetData("temperature", temp);
-	 try {
-		curlpp::Cleanup cleaner;
-		curlpp::Easy request;
+void httpRequest::Post(float hum, float temp) {
+	json->SetData(cHumName, hum);
+	json->SetData(cTempName, temp);
 
-		request.setOpt(new curlpp::options::Url(url));
-		request.setOpt(new curlpp::options::Verbose(true));
-		request.setOpt(new curlpp::options::PostFields(json->GetBuffer().GetString()));
+	curl_global_init(CURL_GLOBAL_ALL);
+	curl = curl_easy_init();
 
-		request.perform();
-	  }
-	  catch ( curlpp::LogicError & e ) {
-		std::cout << e.what() << std::endl;
-	  }
-	  catch ( curlpp::RuntimeError & e ) {
-		std::cout << e.what() << std::endl;
-	  }
+	curl_easy_setopt(curl, CURLOPT_URL, url);
+
+	curl_easy_perform(curl);
+
+	curl_easy_cleanup(curl);
+	curl_global_cleanup();
 }
 

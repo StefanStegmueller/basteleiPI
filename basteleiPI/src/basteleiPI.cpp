@@ -10,6 +10,7 @@
 #include "BMP180/bmpHelper.h"
 #include "httpRequest.h"
 #include <sys/time.h>
+#include <string>
 
 using namespace std;
 
@@ -20,7 +21,7 @@ httpRequest* http;
 void Setup(){
 	dht = new dhtHelper(TYPE_DHT,PIN_DHT);
 	bmp = new bmpHelper();
-	http = new httpRequest();
+	http = new httpRequest("http://api.bastelei-ws.de/insert.php");
 }
 
 void ConsoleOutput(){

@@ -19,7 +19,7 @@ jsonWrap::~jsonWrap() {
 	// TODO Auto-generated destructor stub
 }
 
-void jsonWrap::SetData(char* value, double input){
+void jsonWrap::SetData(const char* value, double input){
 	for (SizeType i = 0; i < d.Size(); i++){
 		  d[i][value].SetDouble(input);
 	}
