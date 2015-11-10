@@ -32,12 +32,12 @@ void ConsoleOutput(){
 
 int main(int argc, char* argv[]) {
 	Setup(argv[0]);
-	/*while(true){
+	while(true){
 		dht->ReadDht(TYPE_DHT,PIN_DHT);
 		bmp->ReadBmp();
 		http->Post(dht->humv,dht->tempv, bmp->press.f);
 		ConsoleOutput();
-	}*/
+	}
 	delete dht;
 	delete bmp;
 	delete http;
