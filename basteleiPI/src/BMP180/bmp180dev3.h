@@ -23,18 +23,20 @@
 #include <sys/ioctl.h>
 #include <math.h>
 
-const unsigned char BMPx8x_OverSampling = 3;
+extern double temperature;
+extern double pressure;
+extern double PAlt;
 
-int      bmp_ReadInt          (int fd, uint8_t *devValues,uint8_t startReg,uint8_t bytesToRead);
-int      bmp_WriteCmd         (int fd, uint8_t devAction);
-int      bmp_Calibration      (int fd);
-int      WaitForConversion    (int fd);
-int      bmp_GetPressure      (int fd, double *Pres);
-int      bmp_GetTemperature   (int fd, double *Temp);
-int		 Use				  ();
+extern int      bmp_ReadInt          (int fd, uint8_t *devValues,uint8_t startReg,uint8_t bytesToRead);
+extern int      bmp_WriteCmd         (int fd, uint8_t devAction);
+extern int      bmp_Calibration      (int fd);
+extern int      WaitForConversion    (int fd);
+extern int      bmp_GetPressure      (int fd, double *Pres);
+extern int      bmp_GetTemperature   (int fd, double *Temp);
+extern int		Use				  ();
 
-double   bmp_altitude         (double p);
-double   bmp_qnh              (double p,double StationAlt);
-double   ppl_DensityAlt       (double PAlt,double Temp);
+extern double   bmp_altitude         (double p);
+extern double   bmp_qnh              (double p,double StationAlt);
+extern double   ppl_DensityAlt       (double PAlt,double Temp);
 
 #endif

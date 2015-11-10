@@ -32,7 +32,7 @@ void ConsoleOutput(){
 
 int main() {
 	Setup();
-	//http->Post(dht->humv,dht->tempv);
+	//http->Post(dht->humv,dht->tempv, bmp->press);
 	ConsoleOutput();
 	delete dht;
 	delete http;

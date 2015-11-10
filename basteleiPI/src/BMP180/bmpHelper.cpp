@@ -9,7 +9,9 @@
 
 bmpHelper::bmpHelper() {
 	Use();
-
+	temp = temperature;
+	press = pressure;
+	alt = PAlt;
 }
 
 bmpHelper::~bmpHelper() {

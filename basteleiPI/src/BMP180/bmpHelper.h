@@ -16,6 +16,9 @@ class bmpHelper {
 public:
 	bmpHelper();
 	virtual ~bmpHelper();
+	float press;
+	float temp;
+	float alt;
 };
 
 #endif /* BMP180_BMPHELPER_H_ */

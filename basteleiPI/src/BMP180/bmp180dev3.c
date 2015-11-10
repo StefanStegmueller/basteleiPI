@@ -65,6 +65,9 @@ int                  bmp_b5;
 short int            bmp_mb;
 short int            bmp_mc;
 short int            bmp_md;
+double 				 temperature;
+double 				 pressure;
+double 				 PAlt;
 
 // Returns a file id for the port/bus
 int i2c_Open(char *I2CBusName){
@@ -201,6 +204,8 @@ int WaitForConversion(int fd){
 // Value returned will be in hPa
 int bmp_GetPressure(int fd, double *Pres)
 {
+
+  const unsigned char BMPx8x_OverSampling = 3;
   unsigned int up;  
   uint8_t rValues[3];
     
@@ -290,8 +295,6 @@ double ppl_DensityAlt(double PAlt,double Temp){
 int Use()
 {
    int fd;
-   double temperature, pressure;
-   double PAlt;
    fd=i2c_Open(I2CBus);
 	printf ("\nCalibration:%i (0= worked)\n",bmp_Calibration(fd));
 	printf ("Return:%i\tTemperature\t:%.1f C\n",bmp_GetTemperature(fd,&temperature),temperature);
