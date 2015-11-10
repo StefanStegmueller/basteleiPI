@@ -18,10 +18,10 @@ dhtHelper* dht;
 bmpHelper* bmp;
 httpRequest* http;
 
-void Setup(){
+void Setup(char* token){
 	dht = new dhtHelper();
 	bmp = new bmpHelper();
-	http = new httpRequest("http://api.bastelei-ws.de/insert.php");
+	http = new httpRequest("http://api.bastelei-ws.de/insert.php", token);
 }
 
 void ConsoleOutput(){
@@ -30,14 +30,14 @@ void ConsoleOutput(){
 		 << "\tErrArg: " << dht->errArg << std::endl;
 }
 
-int main() {
-	Setup();
-	while(true){
+int main(int argc, char* argv[]) {
+	Setup(argv[0]);
+	/*while(true){
 		dht->ReadDht(TYPE_DHT,PIN_DHT);
 		bmp->ReadBmp();
 		http->Post(dht->humv,dht->tempv, bmp->press.f);
 		ConsoleOutput();
-	}
+	}*/
 	delete dht;
 	delete bmp;
 	delete http;

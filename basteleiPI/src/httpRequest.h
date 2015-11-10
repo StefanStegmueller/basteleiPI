@@ -30,8 +30,12 @@ class httpRequest {
 	const char* cTempName;
 	string pressureName;
 	const char* cPressureName;
+	const char* cToken;
+
+	void Init(const string& url, const string& token);
+
 public:
-	httpRequest(string url);
+	httpRequest(string url, string token);
 	virtual ~httpRequest();
 	void Post(float hum, float temp, float press);
 };

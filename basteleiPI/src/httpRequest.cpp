@@ -7,21 +7,27 @@
 #include "httpRequest.h"
 
 
-httpRequest::httpRequest(string url) {
+httpRequest::httpRequest(string url, string token) {
+	Init(url, token);
+	json->SetToken(cToken);
+}
+
+httpRequest::~httpRequest() {
+	delete json;
+	free(curl);
+}
+
+void httpRequest::Init(const string& url, const string& token) {
 	json = new jsonWrap();
-	curl = (CURL*)malloc(sizeof(CURL*));
+	curl = (CURL*) (malloc(sizeof(CURL*)));
 	this->url = url;
+	cToken = token.c_str();
 	humName = "humidity";
 	cHumName = humName.c_str();
 	tempName = "temperature";
 	cTempName = tempName.c_str();
 	pressureName = "pressure";
 	cPressureName = pressureName.c_str();
-}
-
-httpRequest::~httpRequest() {
-	delete json;
-	free(curl);
 }
 
 void httpRequest::Post(float hum, float temp, float press) {

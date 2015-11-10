@@ -25,6 +25,10 @@ void jsonWrap::SetData(const char* value, double input){
 	}
 }
 
+void jsonWrap::SetToken(const char* token){
+	  d["token"].SetString(token,strlen(token));
+}
+
 StringBuffer jsonWrap::GetBuffer(){
 	StringBuffer buffer;
 	Writer<StringBuffer> writer(buffer);

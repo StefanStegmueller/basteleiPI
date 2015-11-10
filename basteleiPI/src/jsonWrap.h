@@ -21,6 +21,7 @@ public:
 	jsonWrap();
 	virtual ~jsonWrap();
 	void SetData(const char*, double);
+	void SetToken(const char* token);
 	StringBuffer GetBuffer();
 };
 
