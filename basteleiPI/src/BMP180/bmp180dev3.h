@@ -3,6 +3,9 @@
 
 #define sleepms(ms)  usleep((ms)*1000)
 
+#define I2CBus             "/dev/i2c-1"      //New Pi's
+//#define I2CBus             "/dev/i2c-0"    //Old, but not stale Pi's
+
 // BMP085 & BMP180 Specific code
 #define BMPx8x_I2CADDR           0x77
 #define BMPx8x_CtrlMeas          0xF4
@@ -23,10 +26,9 @@
 #include <sys/ioctl.h>
 #include <math.h>
 
-extern double temperature;
-extern double pressure;
-extern double PAlt;
+extern int fd;
 
+extern int      i2c_Open(char* I2CBusName);
 extern int      bmp_ReadInt          (int fd, uint8_t *devValues,uint8_t startReg,uint8_t bytesToRead);
 extern int      bmp_WriteCmd         (int fd, uint8_t devAction);
 extern int      bmp_Calibration      (int fd);

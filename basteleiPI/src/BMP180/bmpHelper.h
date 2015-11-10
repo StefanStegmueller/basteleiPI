@@ -10,15 +10,22 @@
 
 extern "C"{
 	#include "bmp180dev3.h"
+	#include <linux/i2c-dev.h>
+	#include <linux/i2c.h>
 }
 
 class bmpHelper {
+	union data{
+		double d;
+		float f;
+	};
 public:
 	bmpHelper();
 	virtual ~bmpHelper();
-	float press;
-	float temp;
-	float alt;
+	data press;
+	data temp;
+	data alt;
+	void FetchData();
 };
 
 #endif /* BMP180_BMPHELPER_H_ */

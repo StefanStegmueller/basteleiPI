@@ -49,9 +49,6 @@
 
 #define sleepms(ms)  usleep((ms)*1000)
 
-#define I2CBus             "/dev/i2c-1"      //New Pi's
-//#define I2CBus             "/dev/i2c-0"    //Old, but not stale Pi's
-
 // Calibration values - These are stored in the BMP085/180
 short int            bmp_ac1;
 short int            bmp_ac2;
@@ -62,12 +59,10 @@ unsigned short int   bmp_ac6;
 short int            bmp_b1;
 short int            bmp_b2;
 int                  bmp_b5;
+int					 fd;
 short int            bmp_mb;
 short int            bmp_mc;
 short int            bmp_md;
-double 				 temperature;
-double 				 pressure;
-double 				 PAlt;
 
 // Returns a file id for the port/bus
 int i2c_Open(char *I2CBusName){
@@ -290,23 +285,4 @@ double bmp_qnh(double p,double StationAlt){
 double ppl_DensityAlt(double PAlt,double Temp){
   double ISA = 15 - (1.98*(PAlt/1000));
   return PAlt+(120*(Temp-ISA)); //So,So density altitude
-}
-
-int Use()
-{
-   int fd;
-   fd=i2c_Open(I2CBus);
-	printf ("\nCalibration:%i (0= worked)\n",bmp_Calibration(fd));
-	printf ("Return:%i\tTemperature\t:%.1f C\n",bmp_GetTemperature(fd,&temperature),temperature);
-	printf ("Return:%i\tPressure\t:%.2f hPa/mB\tThis is known as station pressure\n",bmp_GetPressure(fd,&pressure),pressure);
-	PAlt=bmp_altitude(pressure);
-	printf ("\t\tP.Altitude\t:%.0f ft\tThis is known as a Pressure Altitude\n",PAlt);
-	printf ("\t\tQNH\t\t:%.2f hPa/mB\tSetting required on an Aircraft\n",bmp_qnh(pressure,5085)); //5085 ft is my station elevation
-	printf ("\t\t\t\t\t\taltimeter for it to read Elevation while on the ground\n");	             //use your's
-	printf ("\t\t\t\t\t\tand Altitude while in the air\n");
-	printf ("\t\t\t\t\t\tSensor Elevation MUST BE KNOWN ACCURATELY\n");						
-	printf ("\t\tD.Altitude\t:%.0f ft\tThis is known as a density Altitude\n\n",ppl_DensityAlt(PAlt,temperature));
-   close (fd);
-
-	return 0;
 }
