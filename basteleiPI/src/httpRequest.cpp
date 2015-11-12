@@ -35,6 +35,7 @@ void httpRequest::Post(float hum, float temp, float press) {
 	json->SetData(cTempName, temp);
 	json->SetData(cPressureName, press);
 	string jsonDom = json->GetBuffer().GetString();
+
 	curl_global_init(CURL_GLOBAL_ALL);
 	curl = curl_easy_init();
 

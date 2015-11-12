@@ -11,6 +11,7 @@
 #include "rapidjson/writer.h"
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/document.h"
+#include <string>
 #include <iostream>
 
 using namespace rapidjson;
