@@ -1,8 +1,9 @@
 
 #define PIN 0
 #define INPUT 0
-#define PIN_DHT 4
-#define TYPE_DHT 22
+#define DHT_PIN 4
+#define DHT_TYPE 22
+#define I2C_ADRESS 0x77
 
 #include <iostream>
 #include "gpioHelper.h"
@@ -17,6 +18,7 @@ using namespace std;
 dhtHelper* dht;
 bmpHelper* bmp;
 httpRequest* http;
+char* i2c_device = "/dev/i2c-1";
 
 void Setup(char* token){
 	dht = new dhtHelper();
@@ -33,12 +35,11 @@ void ConsoleOutput(){
 int main(int argc, char* argv[]) {
 	Setup(argv[0]);
 	while(true){
-		dht->ReadDht(TYPE_DHT,PIN_DHT);
-		bmp->ReadBmp();
+		dht->ReadDht(DHT_TYPE,DHT_PIN);
+		bmp->ReadBmp(i2c_device, I2C_ADRESS);
 		http->Post(dht->humv,dht->tempv, bmp->press.f);
 		ConsoleOutput();
 	}
-	http->Post(dht->humv,dht->tempv, bmp->press.f);
 	delete dht;
 	delete bmp;
 	delete http;

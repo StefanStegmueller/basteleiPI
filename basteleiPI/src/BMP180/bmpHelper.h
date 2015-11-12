@@ -8,13 +8,19 @@
 #ifndef BMP180_BMPHELPER_H_
 #define BMP180_BMPHELPER_H_
 
+#ifndef NULL
+#define NULL   ((void *) 0)
+#endif
+
+#include <iostream>
+#include <unistd.h>
 extern "C"{
-	#include "bmp180dev3.h"
+	#include "bmp180.h"
 }
 
 class bmpHelper {
 	union data{
-		double d;
+		long l;
 		float f;
 	};
 public:
@@ -23,7 +29,7 @@ public:
 	data press;
 	data temp;
 	data alt;
-	void ReadBmp();
+	void ReadBmp(char* i2c_device, int adress);
 };
 
 #endif /* BMP180_BMPHELPER_H_ */
