@@ -35,7 +35,6 @@ extern int      bmp_Calibration      (int fd);
 extern int      WaitForConversion    (int fd);
 extern int      bmp_GetPressure      (int fd, double *Pres);
 extern int      bmp_GetTemperature   (int fd, double *Temp);
-extern int		Use				  ();
 
 extern double   bmp_altitude         (double p);
 extern double   bmp_qnh              (double p,double StationAlt);

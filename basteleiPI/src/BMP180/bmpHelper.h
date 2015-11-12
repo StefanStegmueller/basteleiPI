@@ -10,8 +10,6 @@
 
 extern "C"{
 	#include "bmp180dev3.h"
-	#include <linux/i2c-dev.h>
-	#include <linux/i2c.h>
 }
 
 class bmpHelper {

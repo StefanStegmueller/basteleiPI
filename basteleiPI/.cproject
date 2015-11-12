@@ -24,7 +24,7 @@
 								<option id="gnu.cpp.compiler.option.include.paths.417425888" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/local/include/rapidjson"/>
 									<listOptionValue builtIn="false" value="/usr/local/include"/>
-									<listOptionValue builtIn="false" value="/usr/local/include/curlpp"/>
+									<listOptionValue builtIn="false" value=""/>
 								</option>
 								<option id="gnu.cpp.compiler.option.optimization.level.1675899454" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.debugging.level.1865730455" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
