@@ -34,12 +34,12 @@ void httpRequest::Post(float hum, float temp, float press) {
 	json->SetData(cHumName, hum);
 	json->SetData(cTempName, temp);
 	json->SetData(cPressureName, press);
-
+	string jsonDom = json->GetBuffer().GetString();
 	curl_global_init(CURL_GLOBAL_ALL);
 	curl = curl_easy_init();
 
-	curl_easy_setopt(curl, CURLOPT_URL, url);
-	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json->GetBuffer().GetString());
+	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonDom.c_str());
 
 	curl_easy_perform(curl);
 
