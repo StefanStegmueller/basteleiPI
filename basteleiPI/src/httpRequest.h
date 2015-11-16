@@ -37,7 +37,7 @@ class httpRequest {
 public:
 	httpRequest(string url, string token);
 	virtual ~httpRequest();
-	void Post(float hum, float temp, float press);
+	void Post(double hum, double temp, double press);
 };
 
 #endif /* HTTPREQUEST_H_ */

@@ -19,7 +19,9 @@ httpRequest::~httpRequest() {
 
 void httpRequest::Init(const string& url, const string& token) {
 	json = new jsonWrap();
-	curl = (CURL*) (malloc(sizeof(CURL*)));
+	curl_global_init(CURL_GLOBAL_ALL);
+	curl = curl_easy_init();
+
 	this->url = url;
 	cToken = token.c_str();
 	humName = "humidity";
@@ -30,14 +32,13 @@ void httpRequest::Init(const string& url, const string& token) {
 	cPressureName = pressureName.c_str();
 }
 
-void httpRequest::Post(float hum, float temp, float press) {
+void httpRequest::Post(double hum, double temp, double press) {
 	json->SetData(cHumName, hum);
 	json->SetData(cTempName, temp);
 	json->SetData(cPressureName, press);
 	string jsonDom = json->GetBuffer().GetString();
 
-	curl_global_init(CURL_GLOBAL_ALL);
-	curl = curl_easy_init();
+	cout << jsonDom;
 
 	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
 	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonDom.c_str());

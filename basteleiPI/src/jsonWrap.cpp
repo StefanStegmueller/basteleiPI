@@ -21,11 +21,11 @@ jsonWrap::~jsonWrap() {
 }
 
 void jsonWrap::SetData(const char* value, double input){
-	assert(d["token"]["data"][value].GetDouble() == input);
+	d["token"]["data"][value].SetDouble(input);
 }
 
 void jsonWrap::SetToken(const char* token){
-	//assert(d["token"].SetString(token,strlen(token)));
+	d["token"].SetString(token,strlen(token));
 }
 
 StringBuffer jsonWrap::GetBuffer(){
