@@ -7,8 +7,8 @@
 
 #include <iostream>
 #include "gpioHelper.h"
-#include "DHT22/dhtHelper.h"
-#include "BMP180/bmpHelper.h"
+#include "dhtHelper.h"
+#include "bmpHelper.h"
 #include "httpRequest.h"
 #include <sys/time.h>
 #include <string>
