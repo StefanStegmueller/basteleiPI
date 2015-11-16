@@ -33,7 +33,7 @@ src/%.o: ../src/%.cpp
 src/httpRequest.o: ../src/httpRequest.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/usr/local/include -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"src/httpRequest.d" -o "$@" "$<"
+	g++ -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"$(@:%.o=%.d)" -MT"src/httpRequest.d" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

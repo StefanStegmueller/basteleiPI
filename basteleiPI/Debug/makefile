@@ -1,61 +1,37 @@
-################################################################################
-# Automatically-generated file. Do not edit!
-################################################################################
-
--include ../makefile.init
-
-RM := rm -rf
-
-# All of the sources participating in the build are defined here
--include sources.mk
--include src/DHT22/subdir.mk
--include src/BMP180/subdir.mk
--include src/subdir.mk
--include subdir.mk
--include objects.mk
-
-ifneq ($(MAKECMDGOALS),clean)
-ifneq ($(strip $(C++_DEPS)),)
--include $(C++_DEPS)
-endif
-ifneq ($(strip $(C_DEPS)),)
--include $(C_DEPS)
-endif
-ifneq ($(strip $(CC_DEPS)),)
--include $(CC_DEPS)
-endif
-ifneq ($(strip $(CPP_DEPS)),)
--include $(CPP_DEPS)
-endif
-ifneq ($(strip $(CXX_DEPS)),)
--include $(CXX_DEPS)
-endif
-ifneq ($(strip $(C_UPPER_DEPS)),)
--include $(C_UPPER_DEPS)
-endif
-endif
-
--include ../makefile.defs
-
-# Add inputs and outputs from these tool invocations to the build variables 
-
-# All Target
 all: basteleiPI
 
-# Tool invocations
-basteleiPI: $(OBJS) $(USER_OBJS)
-	@echo 'Building target: $@'
-	@echo 'Invoking: GCC C++ Linker'
-	g++ -L/usr/lib -L/usr/local/lib -o "basteleiPI" $(OBJS) $(USER_OBJS) $(LIBS)
-	@echo 'Finished building target: $@'
-	@echo ' '
+basteleiPI: common_dht_read.o dhtHelper.o pi_2_dht_read.o pi_2_mmio.o test_dht_read.o bmp180.o bmpHelper.o basteleiPI.o gpioHelper.o httpRequest.o jsonWrap.o
+	g++ -L/usr/lib -L/usr/local/lib -o "basteleiPI"  ./src/DHT22/common_dht_read.o ./src/DHT22/dhtHelper.o ./src/DHT22/pi_2_dht_read.o ./src/DHT22/pi_2_mmio.o ./src/DHT22/test_dht_read.o  ./src/BMP180/bmp180.o ./src/BMP180/bmpHelper.o  ./src/basteleiPI.o ./src/gpioHelper.o ./src/httpRequest.o ./src/jsonWrap.o   -lwiringPi -lcurl -lpthread
 
-# Other Targets
-clean:
-	-$(RM) $(OBJS)$(C++_DEPS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) basteleiPI
-	-@echo ' '
+common_dht_read.o:
+	gcc -I/usr/local/include -O0 -g3 -Wall -c -fmessage-length=0 -std=gnu99 -MMD -MP -MF"src/DHT22/common_dht_read.d" -MT"src/DHT22/common_dht_read.o" -o "src/DHT22/common_dht_read.o" "../src/DHT22/common_dht_read.c"
+	
+dhtHelper.o:
+	g++ -I/usr/local/include/rapidjson -I/usr/local/include -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/DHT22/dhtHelper.d" -MT"src/DHT22/dhtHelper.o" -o "src/DHT22/dhtHelper.o" "../src/DHT22/dhtHelper.cpp"
+	
+pi_2_dht_read.o:
+	gcc -I/usr/local/include -O0 -g3 -Wall -c -fmessage-length=0 -std=gnu99 -MMD -MP -MF"src/DHT22/pi_2_dht_read.d" -MT"src/DHT22/pi_2_dht_read.o" -o "src/DHT22/pi_2_dht_read.o" "../src/DHT22/pi_2_dht_read.c"
+	
+pi_2_mmio.o:
+	gcc -I/usr/local/include -O0 -g3 -Wall -c -fmessage-length=0 -std=gnu99 -MMD -MP -MF"src/DHT22/pi_2_mmio.d" -MT"src/DHT22/pi_2_mmio.o" -o "src/DHT22/pi_2_mmio.o" "../src/DHT22/pi_2_mmio.c"
+	
+test_dht_read.o:
+	gcc -I/usr/local/include -O0 -g3 -Wall -c -fmessage-length=0 -std=gnu99 -MMD -MP -MF"src/DHT22/test_dht_read.d" -MT"src/DHT22/test_dht_read.o" -o "src/DHT22/test_dht_read.o" "../src/DHT22/test_dht_read.c"
 
-.PHONY: all clean dependents
-.SECONDARY:
+bmp180.o: 
+	gcc -I/usr/local/include -O0 -g3 -Wall -c -fmessage-length=0 -std=gnu99 -MMD -MP -MF"src/BMP180/bmp180.d" -MT"src/BMP180/bmp180.o" -o "src/BMP180/bmp180.o" "../src/BMP180/bmp180.c"
 
--include ../makefile.targets
+bmpHelper.o:
+	g++ -I/usr/local/include/rapidjson -I/usr/local/include -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/BMP180/bmpHelper.d" -MT"src/BMP180/bmpHelper.o" -o "src/BMP180/bmpHelper.o" "../src/BMP180/bmpHelper.cpp"
+
+basteleiPI.o:
+	g++ -I/usr/local/include/rapidjson -I/usr/local/include -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/basteleiPI.d" -MT"src/basteleiPI.o" -o "src/basteleiPI.o" "../src/basteleiPI.cpp"
+	
+gpioHelper.o:
+	g++ -I/usr/local/include/rapidjson -I/usr/local/include -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/gpioHelper.d" -MT"src/gpioHelper.o" -o "src/gpioHelper.o" "../src/gpioHelper.cpp"
+
+httpRequest.o:
+	g++ -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/httpRequest.d" -MT"src/httpRequest.d" -o "src/httpRequest.o" "../src/httpRequest.cpp"
+
+jsonWrap.o:
+	g++ -I/usr/local/include/rapidjson -I/usr/local/include -O0 -g3 -Wall -c -fmessage-length=0 -std=c++11 -MMD -MP -MF"src/jsonWrap.d" -MT"src/jsonWrap.o" -o "src/jsonWrap.o" "../src/jsonWrap.cpp"
