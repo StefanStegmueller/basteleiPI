@@ -23,7 +23,7 @@ httpRequest* http;
 
 void Setup(char* token){
 	dht = new dhtHelper();
-	//bmp = new bmpHelper();
+	bmp = new bmpHelper();
 	http = new httpRequest("http://api.bastelei-ws.de/insert.php", token);
 }
 
