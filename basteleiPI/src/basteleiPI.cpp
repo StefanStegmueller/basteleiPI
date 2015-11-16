@@ -37,7 +37,7 @@ int main(int argc, char* argv[]) {
 	while(true){
 		dht->ReadDht(DHT_TYPE,DHT_PIN);
 		bmp->ReadBmp(i2c_device, I2C_ADRESS);
-		http->Post(dht->humv,dht->tempv, bmp->press.f);
+		//http->Post(dht->humv,dht->tempv, bmp->press.f);
 		ConsoleOutput();
 	}
 	delete dht;
