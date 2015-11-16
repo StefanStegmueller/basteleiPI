@@ -21,11 +21,13 @@ bmpHelper::~bmpHelper() {
 void bmpHelper::ReadBmp(char* i2c_device, int adress) {
 	void *bmp = bmp180_init(adress, i2c_device);
 	if(bmp != NULL){
-		int i;
-		for(i = 0; i < 10; i++) {
-			temp.f = bmp180_temperature(bmp);
-			press.l = bmp180_pressure(bmp);
-			alt.f = bmp180_altitude(bmp);
+		for(int i = 0; i < 10; i++) {
+			if(temp.f == NULL)
+				temp.f = bmp180_temperature(bmp);
+			if(press.l == NULL)
+				press.l = bmp180_pressure(bmp);
+			if(alt.f == NULL)
+				alt.f = bmp180_altitude(bmp);
 		}
 		bmp180_close(bmp);
 	}

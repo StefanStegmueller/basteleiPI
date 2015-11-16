@@ -34,7 +34,7 @@ void ConsoleOutput(){
 		 << "\tErrArg: " << dht->errArg << endl;
 
 	cout << fixed << setw(2) << setprecision(3) << "Temp: " << bmp->temp.f << " Press: " << bmp->press.f
-		 << " Altitude" << bmp->alt.l << endl;
+		 << " Altitude: " << bmp->alt.l << endl;
 }
 
 int main(int argc, char* argv[]) {
@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
 		bmp->ReadBmp(i2c_device, I2C_ADRESS);
 		//http->Post(dht->humv,dht->tempv, bmp->press.f);
 		ConsoleOutput();
-		usleep(2 * 1000 * 1000);
+		usleep(5 * 1000 * 1000);
 	}
 	delete dht;
 	delete bmp;
