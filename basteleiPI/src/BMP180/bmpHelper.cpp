@@ -8,9 +8,9 @@
 #include "bmpHelper.h"
 
 bmpHelper::bmpHelper() {
-	press.f = 0.0;
-	temp.f = 0.0;
-	alt.f = 0.0;
+	press = 0.0;
+	temp = 0.0;
+	alt = 0.0;
 }
 
 bmpHelper::~bmpHelper() {
@@ -27,14 +27,14 @@ void bmpHelper::ReadBmp(char* i2c_device, int adress) {
 
 	if(bmp != NULL){
 		for(int i = 0; i < 10; i++) {
-			if(temp.f == 0)
-				temp.f = bmp180_temperature(bmp);
-			if(press.l == 0)
-				press.l = bmp180_pressure(bmp);
-			if(alt.f == 0)
-				alt.f = bmp180_altitude(bmp);
+			if(temp == 0)
+				temp = bmp180_temperature(bmp);
+			if(press == 0)
+				press = bmp180_pressure(bmp);
+			if(alt == 0)
+				alt = bmp180_altitude(bmp);
 
-		    usleep(5 * 1000 * 1000);
+		    usleep(2 * 1000 * 1000);
 		}
 		bmp180_close(bmp);
 	}

@@ -32,8 +32,8 @@ void ConsoleOutput(){
 	cout << asctime(localtime(&result)) << "Humidity: " <<dht->humv << "\tTemperature: " << dht->tempv
 		 << "\tErrArg: " << dht->errArg << endl;
 
-	cout << fixed << setw(2) << setprecision(3) << "Temp: " << bmp->temp.f << "\tPress: " << bmp->press.f
-		 << "\tAltitude: " << bmp->alt.l << endl;
+	cout << fixed << setw(2) << setprecision(3) << "Temp: " << bmp->temp << "\tPress: " << bmp->press
+		 << "\tAltitude: " << bmp->alt << endl;
 }
 
 int main(int argc, char* argv[]) {

@@ -19,16 +19,12 @@ extern "C"{
 }
 
 class bmpHelper {
-	union data{
-		long l;
-		float f;
-	};
 public:
 	bmpHelper();
 	virtual ~bmpHelper();
-	data press;
-	data temp;
-	data alt;
+	long press;
+	float temp;
+	float alt;
 	void ReadBmp(char* i2c_device, int adress);
 };
 
