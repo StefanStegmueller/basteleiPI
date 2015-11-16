@@ -26,7 +26,6 @@ void bmpHelper::ReadBmp(char* i2c_device, int adress) {
 			temp.f = bmp180_temperature(bmp);
 			press.l = bmp180_pressure(bmp);
 			alt.f = bmp180_altitude(bmp);
-			usleep(2 * 1000 * 1000);
 		}
 		bmp180_close(bmp);
 	}

@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <unistd.h>
 #include "gpioHelper.h"
 #include "DHT22/dhtHelper.h"
 #include "BMP180/bmpHelper.h"
@@ -30,9 +31,10 @@ void Setup(char* token){
 void ConsoleOutput(){
 	time_t result = time(nullptr);
 	cout << asctime(localtime(&result)) << "Humidity: " <<dht->humv << "\tTemperature: " << dht->tempv
-		 << "\tErrArg: " << dht->errArg << std::endl;
+		 << "\tErrArg: " << dht->errArg << endl;
 
-	cout << fixed << setw(2) << setprecision(3) << "Temp: " << bmp->temp.f << " Press: " << bmp->press.f << " Altitude" << bmp->alt.l;
+	cout << fixed << setw(2) << setprecision(3) << "Temp: " << bmp->temp.f << " Press: " << bmp->press.f
+		 << " Altitude" << bmp->alt.l << endl;
 }
 
 int main(int argc, char* argv[]) {
@@ -42,6 +44,7 @@ int main(int argc, char* argv[]) {
 		bmp->ReadBmp(i2c_device, I2C_ADRESS);
 		//http->Post(dht->humv,dht->tempv, bmp->press.f);
 		ConsoleOutput();
+		usleep(2 * 1000 * 1000);
 	}
 	delete dht;
 	delete bmp;

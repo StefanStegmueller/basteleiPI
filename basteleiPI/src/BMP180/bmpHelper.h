@@ -13,7 +13,6 @@
 #endif
 
 #include <iostream>
-#include <unistd.h>
 extern "C"{
 	#include "bmp180.h"
 }

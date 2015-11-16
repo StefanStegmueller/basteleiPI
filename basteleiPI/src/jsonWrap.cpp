@@ -12,7 +12,7 @@ using namespace rapidjson;
 jsonWrap::jsonWrap() {
 	// 1. Parse a JSON string into DOM.
 	const char* json = "{\"token\":0,\"data\":{\"humidity\":0,\"temperature\":0,\"pressure\":0}}";
-	std::cout << json;
+	std::cout << json << std::endl;
 	d.Parse(json);
 }
 
