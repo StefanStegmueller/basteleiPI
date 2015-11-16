@@ -6,6 +6,7 @@
 #define I2C_ADRESS 0x77
 
 #include <iostream>
+#include <iomanip>
 #include "gpioHelper.h"
 #include "DHT22/dhtHelper.h"
 #include "BMP180/bmpHelper.h"
@@ -30,6 +31,8 @@ void ConsoleOutput(){
 	time_t result = time(nullptr);
 	cout << asctime(localtime(&result)) << "Humidity: " <<dht->humv << "\tTemperature: " << dht->tempv
 		 << "\tErrArg: " << dht->errArg << std::endl;
+
+	cout << fixed << setw(2) << setprecision(3) << "Temp: " << bmp->temp.f << " Press: " << bmp->press.f << " Altitude" << bmp->alt.l;
 }
 
 int main(int argc, char* argv[]) {
