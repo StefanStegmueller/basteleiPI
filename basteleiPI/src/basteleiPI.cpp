@@ -44,7 +44,7 @@ int main(int argc, char* argv[]) {
 		return 1;
 	while(true){
 		dht->ReadDht(DHT_TYPE,DHT_PIN);
-		//bmp->ReadBmp(I2C_DEVICE, I2C_ADRESS);
+		bmp->ReadBmp(I2C_DEVICE, I2C_ADRESS);
 		http->Post((double)dht->humv,(double)dht->tempv, (double)bmp->press);
 		ConsoleOutput();
 	}
