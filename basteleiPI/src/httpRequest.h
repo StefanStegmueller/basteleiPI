@@ -32,12 +32,12 @@ class httpRequest {
 	const char* cPressureName;
 	const char* cToken;
 
-	void Init(const string& url, const string& token);
+	void Init(const string& url);
 
 public:
-	httpRequest(string url, string token);
+	httpRequest(string url);
 	virtual ~httpRequest();
-	void Post(double hum, double temp, double press);
+	void Post(string token, double hum, double temp, double press);
 };
 
 #endif /* HTTPREQUEST_H_ */

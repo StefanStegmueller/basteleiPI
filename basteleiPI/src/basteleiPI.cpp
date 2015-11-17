@@ -21,10 +21,10 @@ dhtHelper* dht;
 bmpHelper* bmp;
 httpRequest* http;
 
-void Setup(char* token){
+void Setup(){
 	dht = new dhtHelper();
 	bmp = new bmpHelper();
-	http = new httpRequest("http://api.bastelei-ws.de/insert.php", token);
+	http = new httpRequest("http://api.bastelei-ws.de/insert.php");
 }
 
 void ConsoleOutput(){
@@ -37,15 +37,11 @@ void ConsoleOutput(){
 }
 
 int main(int argc, char* argv[]) {
-	if(argc == 2) {
-		Setup(argv[1]);
-	}
-	else
-		return 1;
+	Setup();
 	while(true){
 		dht->ReadDht(DHT_TYPE,DHT_PIN);
-		bmp->ReadBmp(I2C_DEVICE, I2C_ADRESS);
-		http->Post((double)dht->humv,(double)dht->tempv, (double)bmp->press);
+		//bmp->ReadBmp(I2C_DEVICE, I2C_ADRESS);
+		http->Post(argv[1], (double)dht->humv,(double)dht->tempv, (double)bmp->press);
 		ConsoleOutput();
 	}
 	delete dht;
