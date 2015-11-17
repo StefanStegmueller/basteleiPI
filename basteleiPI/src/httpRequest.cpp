@@ -24,6 +24,8 @@ void httpRequest::Init(const string& url, const string& token) {
 
 	this->url = url;
 	cToken = token.c_str();
+	json->SetToken(cToken);
+
 	humName = "humidity";
 	cHumName = humName.c_str();
 	tempName = "temperature";
@@ -36,12 +38,19 @@ void httpRequest::Post(double hum, double temp, double press) {
 	json->SetData(cHumName, hum);
 	json->SetData(cTempName, temp);
 	json->SetData(cPressureName, press);
-	string jsonDom = json->GetBuffer().GetString();
+	string jsonStr = json->GetBuffer().GetString();
 
-	cout << jsonDom;
+	cout << jsonStr << endl;
 
+	struct curl_slist *headers = NULL;
+
+	headers = curl_slist_append(headers, "Accept: application/json");
+	headers = curl_slist_append(headers, "Content-Type: application/json");
+
+	curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "POST");
+	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
 	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonDom.c_str());
+	curl_easy_setopt(curl, CURLOPT_POSTFIELDS, jsonStr.c_str());
 
 	curl_easy_perform(curl);
 

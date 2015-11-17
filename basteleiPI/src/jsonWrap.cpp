@@ -10,10 +10,17 @@
 using namespace rapidjson;
 
 jsonWrap::jsonWrap() {
-	// 1. Parse a JSON string into DOM.
-	const char* json = "{\"token\":0,\"data\":{\"humidity\":0,\"temperature\":0,\"pressure\":0}}";
-	std::cout << json << std::endl;
-	d.Parse(json);
+	d.SetObject();
+	Document::AllocatorType& allocator = d.GetAllocator();
+
+	d.AddMember("token", "XYZ", allocator);
+
+	Value object(rapidjson::kObjectType);
+		object.AddMember("humidity", "0", allocator);
+		object.AddMember("temperature", "0", allocator);
+		object.AddMember("pressure", "0", allocator);
+
+	d.AddMember("data", object, allocator);
 }
 
 jsonWrap::~jsonWrap() {
@@ -21,7 +28,7 @@ jsonWrap::~jsonWrap() {
 }
 
 void jsonWrap::SetData(const char* value, double input){
-	d["token"]["data"][value].SetDouble(input);
+	d["data"][value].SetDouble(input);
 }
 
 void jsonWrap::SetToken(const char* token){

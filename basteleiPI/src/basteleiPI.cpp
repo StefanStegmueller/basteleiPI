@@ -37,7 +37,11 @@ void ConsoleOutput(){
 }
 
 int main(int argc, char* argv[]) {
-	Setup(argv[0]);
+	if(argc == 2) {
+		Setup(argv[1]);
+	}
+	else
+		return 1;
 	while(true){
 		dht->ReadDht(DHT_TYPE,DHT_PIN);
 		//bmp->ReadBmp(I2C_DEVICE, I2C_ADRESS);
