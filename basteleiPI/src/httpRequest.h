@@ -23,6 +23,7 @@ using namespace std;
 class httpRequest {
 	jsonWrap* json;
 	CURL* curl;
+	struct curl_slist* headers;
 	string url;
 	string humName;
 	const char* cHumName;
