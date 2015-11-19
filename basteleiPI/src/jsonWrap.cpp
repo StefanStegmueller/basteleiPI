@@ -16,8 +16,8 @@ jsonWrap::jsonWrap() {
 	d.AddMember("token", "XYZ", allocator);
 
 	Value object(rapidjson::kObjectType);
-		object.AddMember("humidity", "0", allocator);
 		object.AddMember("temperature", "0", allocator);
+		object.AddMember("humidity", "0", allocator);
 		object.AddMember("pressure", "0", allocator);
 		object.AddMember("altitude", "0", allocator);
 
