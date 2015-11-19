@@ -20,7 +20,6 @@ httpRequest::~httpRequest() {
 
 void httpRequest::Init(const string& url) {
 	json = new jsonWrap();
-	curl = (CURL*)malloc(sizeof(CURL*));
 	headers = NULL;
 
 	curl_global_init(CURL_GLOBAL_ALL);
@@ -30,23 +29,17 @@ void httpRequest::Init(const string& url) {
 	headers = curl_slist_append(headers, "Content-Type: application/json");
 
 	this->url = url;
-
-	humName = "humidity";
-	cHumName = humName.c_str();
-	tempName = "temperature";
-	cTempName = tempName.c_str();
-	pressureName = "pressure";
-	cPressureName = pressureName.c_str();
 }
 
-void httpRequest::Post(string token, double hum, double temp, double press) {
+void httpRequest::Post(string token, double hum, double temp, double press, double alt) {
 
 	cToken = token.c_str();
 	json->SetToken(cToken);
 
-	json->SetData(cHumName, hum);
-	json->SetData(cTempName, temp);
-	json->SetData(cPressureName, press);
+	json->SetData(DataNames.hum, hum);
+	json->SetData(DataNames.temp, temp);
+	json->SetData(DataNames.press, press);
+	json->SetData(DataNames.alt, alt);
 	string jsonStr = json->GetBuffer().GetString();
 
 	cout << jsonStr << endl;

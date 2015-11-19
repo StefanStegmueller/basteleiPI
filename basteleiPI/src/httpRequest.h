@@ -20,17 +20,20 @@ extern "C"{
 
 using namespace std;
 
+
+struct data{
+	const char* hum = "humidity";
+	const char* temp = "temperature";
+	const char* press = "pressure";
+	const char* alt = "altitude";
+};
+
 class httpRequest {
 	jsonWrap* json;
 	CURL* curl;
 	struct curl_slist* headers;
 	string url;
-	string humName;
-	const char* cHumName;
-	string tempName;
-	const char* cTempName;
-	string pressureName;
-	const char* cPressureName;
+	struct data DataNames;
 	const char* cToken;
 
 	void Init(const string& url);
@@ -38,7 +41,7 @@ class httpRequest {
 public:
 	httpRequest(string url);
 	virtual ~httpRequest();
-	void Post(string token, double hum, double temp, double press);
+	void Post(string token, double hum, double temp, double press, double alt);
 };
 
 #endif /* HTTPREQUEST_H_ */
