@@ -15,6 +15,7 @@
 #include "stdlib.h"
 #include <sys/time.h>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -47,6 +48,14 @@ void ConsoleOutput(){
 		 << "\tAltitude: " << bmp->alt << endl;
 }
 
+unsigned int GetTimeout(char* param){
+	unsigned int timeout;
+	stringstream sstream;
+	sstream << param;
+	sstream >> timeout;
+	return timeout;
+}
+
 int main(int argc, char* argv[]) {
 	if(!CheckArgs(argc, argv)){
 		return 100;
@@ -57,7 +66,7 @@ int main(int argc, char* argv[]) {
 		bmp->ReadBmp(I2C_DEVICE, I2C_ADRESS);
 		http->Post(argv[1], (double)dht->humv,(double)dht->tempv, (double)bmp->press, (double)bmp->alt);
 		ConsoleOutput();
-		sleep(arg[2]); // pause 1 min
+		sleep(GetTimeout(argv[2]));
 	}
 	delete dht;
 	delete bmp;
