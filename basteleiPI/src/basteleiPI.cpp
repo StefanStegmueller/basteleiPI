@@ -12,10 +12,11 @@
 #include "DHT22/dhtHelper.h"
 #include "BMP180/bmpHelper.h"
 #include "httpRequest.h"
-#include "stdlib.h"
 #include <sys/time.h>
 #include <string>
 #include <sstream>
+#include <chrono>
+#include <thread>
 
 using namespace std;
 
@@ -45,7 +46,7 @@ void ConsoleOutput(){
 		 << "\tErrArg: " << dht->errArg << endl;
 
 	cout << fixed << setw(2) << setprecision(3) << "Temp: " << bmp->temp << "\tPress: " << bmp->press
-		 << "\tAltitude: " << bmp->alt << endl;
+		 << "\tAltitude: " << bmp->alt << endl << endl;
 }
 
 unsigned int GetTimeout(char* param){
@@ -66,7 +67,7 @@ int main(int argc, char* argv[]) {
 		bmp->ReadBmp(I2C_DEVICE, I2C_ADRESS);
 		http->Post(argv[1], (double)dht->humv,(double)dht->tempv, (double)bmp->press, (double)bmp->alt);
 		ConsoleOutput();
-		sleep(GetTimeout(argv[2]));
+		this_thread::sleep_for(chrono::seconds(GetTimeout(argv[2])));
 	}
 	delete dht;
 	delete bmp;
