@@ -21,6 +21,10 @@ bmpHelper::~bmpHelper() {
 void bmpHelper::ReadBmp(char* i2c_device, int adress) {
 	void *bmp = bmp180_init(adress, i2c_device);
 
+	temp = 0;
+	press = 0;
+	alt = 0;
+
 	bmp180_eprom_t eprom;
 	bmp180_dump_eprom(bmp, &eprom);
 	bmp180_set_oss(bmp, 1);
@@ -34,7 +38,7 @@ void bmpHelper::ReadBmp(char* i2c_device, int adress) {
 			if(alt == 0)
 				alt = bmp180_altitude(bmp);
 
-		    usleep(2 * 1000 * 1000);
+		    usleep(1000);
 		}
 		bmp180_close(bmp);
 	}
