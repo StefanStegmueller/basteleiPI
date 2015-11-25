@@ -22,6 +22,16 @@ dhtHelper* dht;
 bmpHelper* bmp;
 httpRequest* http;
 
+bool CheckArgs(int argc, char* argv[]){
+	if(argc != 3){
+		cout << "wrong number of arguments" << endl;
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
 void Setup(){
 	dht = new dhtHelper();
 	bmp = new bmpHelper();
@@ -38,13 +48,16 @@ void ConsoleOutput(){
 }
 
 int main(int argc, char* argv[]) {
+	if(!CheckArgs(argc, argv)){
+		return 100;
+	}
 	Setup();
 	while(true){
 		dht->ReadDht(DHT_TYPE,DHT_PIN);
 		bmp->ReadBmp(I2C_DEVICE, I2C_ADRESS);
 		http->Post(argv[1], (double)dht->humv,(double)dht->tempv, (double)bmp->press, (double)bmp->alt);
 		ConsoleOutput();
-		sleep(60000); // pause 1 min
+		sleep(arg[2]); // pause 1 min
 	}
 	delete dht;
 	delete bmp;
