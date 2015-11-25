@@ -14,7 +14,10 @@ dhtHelper::dhtHelper() {
 }
 
 void dhtHelper::ReadDht(int type, int pin){
+	do{
 	errArg = pi_2_dht_read(type,pin,hum,temp);
+	}
+	while(errArg == 2);
 }
 
 int dhtHelper::test_dht_read(int type, int pin, float* humidity, float* temperature) {
