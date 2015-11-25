@@ -42,7 +42,7 @@ void Setup(){
 
 void ConsoleOutput(){
 	time_t result = time(nullptr);
-	cout << asctime(localtime(&result)) << "Humidity: " <<dht->humv << "\tTemperature: " << dht->tempv
+	cout << endl << asctime(localtime(&result)) << "Humidity: " <<dht->humv << "\tTemperature: " << dht->tempv
 		 << "\tErrArg: " << dht->errArg << endl;
 
 	cout << fixed << setw(2) << setprecision(3) << "Temp: " << bmp->temp << "\tPress: " << bmp->press

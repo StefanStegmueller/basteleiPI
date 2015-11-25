@@ -24,7 +24,7 @@ using namespace std;
 struct data{
 	const char* hum = "humidity";
 	const char* temp = "temperature";
-	const char* press = "airPressure";
+	const char* press = "airpressure";
 	const char* alt = "altitude";
 };
 
