@@ -42,8 +42,6 @@ void httpRequest::Post(string token, double hum, double temp, double press, doub
 	json->SetData(DataNames.alt, alt);
 	string jsonStr = json->GetBuffer().GetString();
 
-	cout << jsonStr << endl;
-
 	curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "POST");
 	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
 	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());

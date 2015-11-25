@@ -12,6 +12,7 @@
 #include "DHT22/dhtHelper.h"
 #include "BMP180/bmpHelper.h"
 #include "httpRequest.h"
+#include "stdlib.h"
 #include <sys/time.h>
 #include <string>
 
@@ -40,9 +41,10 @@ int main(int argc, char* argv[]) {
 	Setup();
 	while(true){
 		dht->ReadDht(DHT_TYPE,DHT_PIN);
-		//bmp->ReadBmp(I2C_DEVICE, I2C_ADRESS);
+		bmp->ReadBmp(I2C_DEVICE, I2C_ADRESS);
 		http->Post(argv[1], (double)dht->humv,(double)dht->tempv, (double)bmp->press, (double)bmp->alt);
 		ConsoleOutput();
+		sleep(60000); // pause 1 min
 	}
 	delete dht;
 	delete bmp;
