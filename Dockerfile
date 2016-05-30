@@ -13,3 +13,8 @@ RUN git clone git://git.drogon.net/wiringPi
 RUN cd wiringPi && ./build
 RUN git clone https://github.com/miloyip/rapidjson.git
 RUN cp -a /rapidjson/include/rapidjson /usr/local/include
+
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+
+CMD ./basteleiPI pn8TPhSpIiD2qlF1XS4IXPcnmMivSpwslhVR9yHhpHqeX8Dray2hdawXlS0bTZ 60
