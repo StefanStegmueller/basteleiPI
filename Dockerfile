@@ -10,6 +10,7 @@ python-dev \
 python-pip \
 libcurl3 \
 libcurl3-gnutls
+
 RUN pip install pyserial
 RUN git clone git://git.drogon.net/wiringPi
 RUN cd wiringPi && ./build
