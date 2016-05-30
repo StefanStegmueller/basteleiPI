@@ -20,6 +20,6 @@ RUN cp -a /rapidjson/include/rapidjson /usr/local/include
 COPY . /usr/src/app
 WORKDIR /usr/src/app/basteleiPI/basteleiPI/Debug
 
-RUN make all
+RUN make
 
 CMD ./basteleiPI pn8TPhSpIiD2qlF1XS4IXPcnmMivSpwslhVR9yHhpHqeX8Dray2hdawXlS0bTZ 60
