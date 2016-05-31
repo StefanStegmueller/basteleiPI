@@ -20,4 +20,4 @@ RUN cp -a /rapidjson/include/rapidjson /usr/local/include
 COPY . /app
 WORKDIR /app/basteleiPI/basteleiPI/Debug
 
-CMD ["./basteleiPI","pn8TPhSpIiD2qlF1XS4IXPcnmMivSpwslhVR9yHhpHqeX8Dray2hdawXlS0bTZ","60"]
+CMD echo 'Hello World'
