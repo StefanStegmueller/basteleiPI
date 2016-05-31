@@ -20,4 +20,4 @@ RUN cp -a /rapidjson/include/rapidjson /usr/local/include
 COPY . /app
 WORKDIR /app/basteleiPI/basteleiPI/Debug
 
-CMD echo 'Hello World'
+CMD while true; do echo hello world; sleep 1; done
