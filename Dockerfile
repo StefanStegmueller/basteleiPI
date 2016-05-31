@@ -25,10 +25,4 @@ WORKDIR /app/basteleiPI/Debug
 
 RUN make all
 
-RUN apt-get -y install sudo
-
-RUN useradd -m docker && echo "docker:docker" | chpasswd && adduser docker sudo
-
-USER docker
-
-CMD ["./basteleiPI","pn8TPhSpIiD2qlF1XS4IXPcnmMivSpwslhVR9yHhpHqeX8Dray2hdawXlS0bTZ","60"]
+CMD modprobe i2c-dev && ./basteleiPI pn8TPhSpIiD2qlF1XS4IXPcnmMivSpwslhVR9yHhpHqeX8Dray2hdawXlS0bTZ 60
