@@ -11,7 +11,8 @@ python-pip \
 libcurl3 \
 libcurl3-gnutls \
 curl \
-libcurl4-openssl-dev
+libcurl4-openssl-dev \
+libi2c-dev
 
 RUN pip install pyserial
 RUN git clone git://git.drogon.net/wiringPi
