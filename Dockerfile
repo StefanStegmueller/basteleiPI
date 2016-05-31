@@ -18,6 +18,8 @@ RUN git clone https://github.com/miloyip/rapidjson.git
 RUN cp -a /rapidjson/include/rapidjson /usr/local/include
 
 COPY . /app
-WORKDIR /app/basteleiPI/basteleiPI/Debug
+WORKDIR /app/basteleiPI/Debug
 
-CMD while true; do echo hello world; sleep 1; done
+RUN make all
+
+CMD CMD ["./basteleiPI","pn8TPhSpIiD2qlF1XS4IXPcnmMivSpwslhVR9yHhpHqeX8Dray2hdawXlS0bTZ","60"]
