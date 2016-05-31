@@ -9,7 +9,8 @@ build-essential \
 python-dev \
 python-pip \
 libcurl3 \
-libcurl3-gnutls
+libcurl3-gnutls \
+curl
 
 RUN pip install pyserial
 RUN git clone git://git.drogon.net/wiringPi
