@@ -25,4 +25,4 @@ WORKDIR /app/basteleiPI/Debug
 
 RUN make all
 
-CMD CMD ["./basteleiPI","pn8TPhSpIiD2qlF1XS4IXPcnmMivSpwslhVR9yHhpHqeX8Dray2hdawXlS0bTZ","60"]
+CMD ["./basteleiPI","pn8TPhSpIiD2qlF1XS4IXPcnmMivSpwslhVR9yHhpHqeX8Dray2hdawXlS0bTZ","60"]
