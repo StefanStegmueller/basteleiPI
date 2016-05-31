@@ -17,9 +17,9 @@ RUN cd wiringPi && ./build
 RUN git clone https://github.com/miloyip/rapidjson.git
 RUN cp -a /rapidjson/include/rapidjson /usr/local/include
 
-COPY . /usr/src/app
-WORKDIR /usr/src/app/basteleiPI/basteleiPI/Debug
+COPY . /app
+WORKDIR /app/basteleiPI/basteleiPI/Debug
 
-RUN make basteleiPI
+RUN make all
 
 CMD ./basteleiPI pn8TPhSpIiD2qlF1XS4IXPcnmMivSpwslhVR9yHhpHqeX8Dray2hdawXlS0bTZ 60
