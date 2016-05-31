@@ -65,9 +65,15 @@ int main(int argc, char* argv[]) {
 	Setup();
 	cout << "Setup finished" << endl;
 	while(true){
+		cout << "Read DHT Sensor..." << endl;
 		dht->ReadDht(DHT_TYPE,DHT_PIN);
+		cout << "Done." << endl;
+		cout << "Read BMP Sensor..." << endl;
 		bmp->ReadBmp(I2C_DEVICE, I2C_ADRESS);
+		cout << "Done." << endl;
+		cout << "Sending Data..." << endl;
 		http->Post(argv[1], (double)dht->humv,(double)dht->tempv, (double)bmp->press, (double)bmp->alt);
+		cout << "Done." << endl;
 		ConsoleOutput();
 		this_thread::sleep_for(chrono::seconds(GetTimeout(argv[2])));
 	}
