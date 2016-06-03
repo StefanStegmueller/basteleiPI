@@ -19,9 +19,9 @@ bmpHelper::~bmpHelper() {
 
 
 void bmpHelper::ReadBmp(char* i2c_device, int adress) {
-	cout << "Start BMP INIT" << endl;
+	std::cout << "Start BMP INIT" << endl;
 	void *bmp = bmp180_init(adress, i2c_device);
-	cout << "BMP INIT done." << endl;
+	std::cout << "BMP INIT done." << endl;
 
 	temp = 0;
 	press = 0;
