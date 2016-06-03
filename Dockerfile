@@ -1,7 +1,6 @@
 FROM resin/rpi-raspbian:jessie
 
 ENV INITSYSTEM on
-ENV TOKEN
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN apt-get -y update && apt-get install -y \
