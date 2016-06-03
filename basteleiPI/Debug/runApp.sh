@@ -1,0 +1,1 @@
+./basteleiPI $TOKEN 60
