@@ -1,6 +1,7 @@
 FROM resin/rpi-raspbian:jessie
 
 ENV INITSYSTEM on
+ENV TOKEN
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN apt-get -y update && apt-get install -y \
@@ -25,4 +26,4 @@ WORKDIR /app/basteleiPI/Debug
 
 RUN make all
 
-CMD modprobe i2c-dev && ./basteleiPI pn8TPhSpIiD2qlF1XS4IXPcnmMivSpwslhVR9yHhpHqeX8Dray2hdawXlS0bTZ 60
+CMD modprobe i2c-dev && chmod +x runApp.sh && ./runApp.sh
