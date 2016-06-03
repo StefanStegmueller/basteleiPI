@@ -7,6 +7,8 @@
 
 #include "bmpHelper.h"
 
+using namespace std;
+
 bmpHelper::bmpHelper() {
 	press = 0.0;
 	temp = 0.0;
@@ -19,9 +21,9 @@ bmpHelper::~bmpHelper() {
 
 
 void bmpHelper::ReadBmp(char* i2c_device, int adress) {
-	std::cout << "Start BMP INIT" << endl;
+	cout << "Start BMP INIT" << endl;
 	void *bmp = bmp180_init(adress, i2c_device);
-	std::cout << "BMP INIT done." << endl;
+	cout << "BMP INIT done." << endl;
 
 	temp = 0;
 	press = 0;
